@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: rgb(181, 203, 203);
+        
+      }
+      
+      .clock {
+        font-size: 3rem;
+        display: flex;
+       
+        align-items: center;
+      }
+      
+      .clock div {
+        margin: 0 10px; 
+        padding: 10px; 
+    }
+
+    .hur{
+      height: 120px;
+      width: 120px;
+      text-align: center;      
+    }
+
+    .mint{
+      height: 120px;
+      width: 120px;
+      text-align: center;      
+    }
+
+    .sec{
+      height: 120px;
+      width: 120px;
+      text-align: center;      
+    }
+      
+    
+</style>
+<body>
+  
+    <div class="clock">      
+        
+        <div style="background-color: rgb(81, 81, 226);" class="hur">
+            <span id="hours">00</span> 
+        </div>        
+        
+        <div style="background-color: rgb(120, 216, 120);" class="mint">
+            <span id="minutes">00</span> 
+        </div>
+        <div style="background-color: rgb(219, 83, 158);" class="sec">
+             <span id="seconds">00</span>
+        </div>        
+    </div>
+    
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script >
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours().toString().padStart(2, '0');
+            var minutes = now.getMinutes().toString().padStart(2, '0');
+            var seconds = now.getSeconds().toString().padStart(2, '0');
+            
+            $('#hours').text(hours);
+            $('#minutes').text(minutes);
+            $('#seconds').text(seconds);
+          }
+          
+          $(document).ready(function() {
+            updateClock();
+            setInterval(updateClock, 1000);
+          });
+          
+      </script>
+</body>
+</html>
